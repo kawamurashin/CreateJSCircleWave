@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>createjs</title>
+
+<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+<script src="createjs.js"></script>
+<script src="Stats.js"></script>
+
+
+    <script>
+var canvas, stage, exportRoot;
+    var stats;
+var shape
+function init() {
+	canvas = document.getElementById("canvas");
+	exportRoot = new lib.createjs();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+    //stats
+    stats = new Stats();
+    stats.setMode(0);
+    stats.domElement.style.position = "fixed";
+    stats.domElement.style.right = "0px";
+    stats.domElement.style.top = "0px";
+    document.body.appendChild(stats.domElement);
+
+    shape = new createjs.Shape();
+    shape.x = 200;
+    shape.y = 200;
+    stage.addChild(shape);
+    var g = shape.graphics;
+    g.beginFill("#ff0000");
+    g.drawRect( 0, 0, 100, 100);
+
+    stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", tick);
+}
+function tick()
+{
+    stats.update();
+    stage.update();
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="465" height="465" style="background-color:#FFFFFF"></canvas>
+</body>
+</html>
