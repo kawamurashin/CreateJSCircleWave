@@ -42,7 +42,7 @@ function init() {
     stage.addChild(shape);
 
     pointList = [];
-    n = 120;
+    n = 360;
     for(i=0;i<n;i++)
     {
         theta = i * (360 / n) * Math.PI / 180;
@@ -64,17 +64,52 @@ function init() {
 }
 function setTimeoutClocure()
 {
-
+    var i;
+    var n;
     var theta;
     var point;
+    var number;
+    var num;
     var list;
+    var force;
+    var forceX;
+    var forceY;
+    var w;
+    var f;
     //
-    point = pointList[Math.floor(pointList.length*Math.random())];
+    number = Math.floor(Math.random() * pointList.length);
+    f = 10 + 10 * Math.random();
+    w = 18 + 18 * Math.random();
+    n = w;
+    for (i = 0; i < n; i++)
+    {
+        num = number - Math.floor(n * 0.5) + i;
+        if (num < 0)
+        {
+            num += pointList.length;
+        }
+        else if ( num >= pointList.length)
+        {
+            num -= pointList.length;
+        }
+        point = pointList[num];
+        list = point.getPosition();
+        theta = Math.atan2(list[1], list[0]);
+        force = f * Math.sin(Math.PI * (i / n));
+        forceX = force * Math.cos(theta);
+        forceY = force * Math.sin(theta);
+        point.setForce(forceX,forceY);
+        point.onEnterFrame();
+    }
+
+
+    /*
     list = point.getPosition();
     theta = Math.atan2(list[1],list[0]);
-    point.forceX = 50 * Math.cos(theta);
-    point.forceY = 50 * Math.sin(theta);
-    point.onEnterFrame();
+    point.forceX = force * Math.cos(theta);
+    point.forceY = force * Math.sin(theta);
+     point.onEnterFrame();
+     */
 
     setTimeout(setTimeoutClocure,3000);
 }
@@ -83,6 +118,7 @@ function tick()
     onEnterFrame();
     draw();
     stats.update();
+    //
     stage.update();
 }
 function onEnterFrame()
@@ -112,8 +148,7 @@ function onEnterFrame()
         disY = defaultList[1] - positionList[1];
         forceX = 0.1 * disX;
         forceY = 0.1 * disY;
-
-               /**/
+        //
         if (i == 0) {
             prePoint = pointList[n - 1];
             nextPoint = pointList[i + 1];
@@ -131,7 +166,6 @@ function onEnterFrame()
         disY = preList[1] - positionList[1];
         forceX += K * disX;
         forceY += K * disY;
-
         //
         nextList = nextPoint.getPosition();
         disX = nextList[0] - positionList[0];
@@ -145,9 +179,7 @@ function onEnterFrame()
         point = pointList[i];
         point.onEnterFrame();
      }
-
 }
-
 function draw()
 {
     var i;
@@ -159,11 +191,7 @@ function draw()
     g = shape.graphics;
     g.clear();
     g.beginStroke("#000000");
-
-
-    //g.drawRect( 0, 0, 100, 200);
     n = pointList.length;
-        /*   */
     for(i=0;i<n;i++)
     {
         point = pointList[i];
@@ -181,11 +209,7 @@ function draw()
     list = point.getPosition();
     g.lineTo(list[0],list[1]);
     g.endStroke();
-
 }
-
-
-
 </script>
 </head>
 <body onload="init();" style="background-color:#D4D4D4">

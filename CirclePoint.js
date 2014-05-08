@@ -5,14 +5,9 @@
  * Time: 11:55
  * To change this template use File | Settings | File Templates.
  */
-
-
 var CirclePoint;
 CirclePoint = (function()
 {
-
-
-
     function CirclePoint()
     {
         this.M = 1;
@@ -28,8 +23,8 @@ CirclePoint = (function()
     }
     CirclePoint.prototype.onEnterFrame = function()
     {
-        this.vx += (this.forceX) - this.U * this.vx;
-        this.vy += (this.forceY) - this.U * this.vy;
+        this.vx += (this.forceX / this.M) - this.U * this.vx;
+        this.vy += (this.forceY / this.M) - this.U * this.vy;
         this._x += this.vx;
         this._y += this.vy;
     }
@@ -37,12 +32,12 @@ CirclePoint = (function()
     {
         console.log("hoge");
     }
-    CirclePoint.prototype.setPosition  = function(setX,setY)
+    CirclePoint.prototype.setPosition  = function(x , y)
     {
-        this.defaultX =setX ;
+        this.defaultX = x ;
         this._x = this.defaultX;
-        this.defaultY = setY;
-        this._y  = this.defaultY;
+        this.defaultY = y;
+        this._y = this.defaultY;
     }
     CirclePoint.prototype.getPosition  = function()
     {
@@ -52,10 +47,10 @@ CirclePoint = (function()
     {
         return [this.defaultX, this.defaultY];
     }
-    CirclePoint.prototype.setForce  = function(fx ,fy )
+    CirclePoint.prototype.setForce  = function(forceX ,forceY )
     {
-        this.forceX = fx;
-        this.forceY = fy;
+        this.forceX = forceX;
+        this.forceY = forceY;
     }
 
 
