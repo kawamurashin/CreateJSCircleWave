@@ -8,18 +8,19 @@
 <script src="createjs.js"></script>
 <script src="Stats.js"></script>
 <script src="CirclePoint.js"></script>
-
-
-    <script>
+<script>
+const K =  0.1;
 var canvas, stage, exportRoot;
-    var stats;
+var stats;
 var pointList;
 var shape;
-var container
+var container;
 function init() {
     var RADIUS = 200;
     var i;
     var n;
+    var _x;
+    var _y;
     var theta;
     var point;
 	canvas = document.getElementById("canvas");
@@ -41,28 +42,110 @@ function init() {
     stage.addChild(shape);
 
     pointList = [];
-    n = 18;
+    n = 120;
     for(i=0;i<n;i++)
     {
         theta = i * (360 / n) * Math.PI / 180;
         point = new CirclePoint();
-        point.defaultX = RADIUS * Math.cos(theta);
-        point.defaultY = RADIUS * Math.sin(theta);
+        _x = RADIUS * Math.cos(theta);
+        _y = RADIUS * Math.sin(theta);
+        point.setPosition(_x,_y);
         pointList.push(point);
     }
+    onEnterFrame();
     draw();
 
     console.log("main");
-
+    setTimeout(setTimeoutClocure,1000);
     tick();
 
 	createjs.Ticker.setFPS(lib.properties.fps);
 	createjs.Ticker.addEventListener("tick", tick);
 }
+function setTimeoutClocure()
+{
+
+    var theta;
+    var point;
+    var list;
+    //
+    point = pointList[Math.floor(pointList.length*Math.random())];
+    list = point.getPosition();
+    theta = Math.atan2(list[1],list[0]);
+    point.forceX = 50 * Math.cos(theta);
+    point.forceY = 50 * Math.sin(theta);
+    point.onEnterFrame();
+
+    setTimeout(setTimeoutClocure,3000);
+}
 function tick()
 {
+    onEnterFrame();
+    draw();
     stats.update();
     stage.update();
+}
+function onEnterFrame()
+{
+    var i;
+    var n;
+    var prePoint;
+    var point;
+    var nextPoint;
+    var disX;
+    var disY;
+    var forceX;
+    var forceY;
+    var positionList;
+    var defaultList;
+    var preList;
+    var nextList;
+    forceX = 0;
+    forceY = 0;
+    n = pointList.length;
+    for (i = 0; i < n; i++)
+    {
+        point = pointList[i];
+        positionList = point.getPosition();
+        defaultList = point.getDefault();
+        disX = defaultList[0] - positionList[0];
+        disY = defaultList[1] - positionList[1];
+        forceX = 0.1 * disX;
+        forceY = 0.1 * disY;
+
+               /**/
+        if (i == 0) {
+            prePoint = pointList[n - 1];
+            nextPoint = pointList[i + 1];
+        }
+        else if (i == n - 1) {
+            prePoint = pointList[i - 1];
+            nextPoint = pointList[0];
+        }
+        else {
+            prePoint = pointList[i - 1];
+            nextPoint = pointList[i + 1];
+        }
+        preList = prePoint.getPosition();
+        disX = preList[0] - positionList[0];
+        disY = preList[1] - positionList[1];
+        forceX += K * disX;
+        forceY += K * disY;
+
+        //
+        nextList = nextPoint.getPosition();
+        disX = nextList[0] - positionList[0];
+        disY = nextList[1] - positionList[1]
+        forceX += K * disX;
+        forceY += K * disY;
+        point.setForce(forceX,forceY);
+    }
+    for (i = 0; i < n; i++)
+    {
+        point = pointList[i];
+        point.onEnterFrame();
+     }
+
 }
 
 function draw()
@@ -71,9 +154,10 @@ function draw()
     var n;
     var g;
     var point;
+    var list;
     //
     g = shape.graphics;
-   // g.clear();
+    g.clear();
     g.beginStroke("#000000");
 
 
@@ -83,18 +167,19 @@ function draw()
     for(i=0;i<n;i++)
     {
         point = pointList[i];
+        list = point.getPosition();
         if(i==0)
         {
-            console.log(point.defaultX,point.defaultY)
-            g.moveTo(point.defaultX,point.defaultY);
+            g.moveTo(list[0],list[1]);
         }
         else
         {
-            g.lineTo(point.defaultX,point.defaultY);
+            g.lineTo(list[0],list[1]);
         }
     }
     point = pointList[0];
-    g.lineTo(point.defaultX,point.defaultY);
+    list = point.getPosition();
+    g.lineTo(list[0],list[1]);
     g.endStroke();
 
 }
@@ -103,7 +188,6 @@ function draw()
 
 </script>
 </head>
-
 <body onload="init();" style="background-color:#D4D4D4">
 <canvas id="canvas" width="465" height="465" style="background-color:#FFFFFF"></canvas>
 </body>
