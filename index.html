@@ -7,13 +7,21 @@
 <script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
 <script src="createjs.js"></script>
 <script src="Stats.js"></script>
+<script src="CirclePoint.js"></script>
 
 
     <script>
 var canvas, stage, exportRoot;
     var stats;
-var shape
+var pointList;
+var shape;
+var container
 function init() {
+    var RADIUS = 200;
+    var i;
+    var n;
+    var theta;
+    var point;
 	canvas = document.getElementById("canvas");
 	exportRoot = new lib.createjs();
 
@@ -28,14 +36,25 @@ function init() {
     document.body.appendChild(stats.domElement);
 
     shape = new createjs.Shape();
-    shape.x = 200;
-    shape.y = 200;
+    shape.x = 465*0.5;
+    shape.y = 465*0.5;
     stage.addChild(shape);
-    var g = shape.graphics;
-    g.beginFill("#ff0000");
-    g.drawRect( 0, 0, 100, 100);
 
-    stage.update();
+    pointList = [];
+    n = 18;
+    for(i=0;i<n;i++)
+    {
+        theta = i * (360 / n) * Math.PI / 180;
+        point = new CirclePoint();
+        point.defaultX = RADIUS * Math.cos(theta);
+        point.defaultY = RADIUS * Math.sin(theta);
+        pointList.push(point);
+    }
+    draw();
+
+    console.log("main");
+
+    tick();
 
 	createjs.Ticker.setFPS(lib.properties.fps);
 	createjs.Ticker.addEventListener("tick", tick);
@@ -45,10 +64,47 @@ function tick()
     stats.update();
     stage.update();
 }
+
+function draw()
+{
+    var i;
+    var n;
+    var g;
+    var point;
+    //
+    g = shape.graphics;
+   // g.clear();
+    g.beginStroke("#000000");
+
+
+    //g.drawRect( 0, 0, 100, 200);
+    n = pointList.length;
+        /*   */
+    for(i=0;i<n;i++)
+    {
+        point = pointList[i];
+        if(i==0)
+        {
+            console.log(point.defaultX,point.defaultY)
+            g.moveTo(point.defaultX,point.defaultY);
+        }
+        else
+        {
+            g.lineTo(point.defaultX,point.defaultY);
+        }
+    }
+    point = pointList[0];
+    g.lineTo(point.defaultX,point.defaultY);
+    g.endStroke();
+
+}
+
+
+
 </script>
 </head>
 
 <body onload="init();" style="background-color:#D4D4D4">
-	<canvas id="canvas" width="465" height="465" style="background-color:#FFFFFF"></canvas>
+<canvas id="canvas" width="465" height="465" style="background-color:#FFFFFF"></canvas>
 </body>
 </html>
