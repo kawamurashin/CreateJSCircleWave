@@ -2,19 +2,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>createjs</title>
-
+<title>CircleWave</title>
 <script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
 <script src="createjs.js"></script>
 <script src="Stats.js"></script>
 <script src="CirclePoint.js"></script>
+<script src="Clock.js"></script>
 <script>
 const K =  0.1;
 var canvas, stage, exportRoot;
 var stats;
 var pointList;
 var shape;
+var clock;
 var container;
+var id;
 function init() {
     var RADIUS = 200;
     var i;
@@ -23,6 +25,7 @@ function init() {
     var _y;
     var theta;
     var point;
+
 	canvas = document.getElementById("canvas");
 	exportRoot = new lib.createjs();
 
@@ -41,6 +44,16 @@ function init() {
     shape.y = 465*0.5;
     stage.addChild(shape);
 
+    container = new createjs.Container();
+    stage.addChild(container);
+
+    /* */
+    clock = new Clock();
+    //stage.addChild(clock)
+   clock.init(container);
+
+
+
     pointList = [];
     n = 360;
     for(i=0;i<n;i++)
@@ -57,12 +70,18 @@ function init() {
 
     console.log("main");
     setTimeout(setTimeoutClocure,1000);
+    stage.addEventListener("click" ,clickHandler);
     tick();
 
 	createjs.Ticker.setFPS(lib.properties.fps);
 	createjs.Ticker.addEventListener("tick", tick);
 }
 function setTimeoutClocure()
+{
+    addWave();
+
+}
+function addWave()
 {
     var i;
     var n;
@@ -76,6 +95,7 @@ function setTimeoutClocure()
     var forceY;
     var w;
     var f;
+    var time;
     //
     number = Math.floor(Math.random() * pointList.length);
     f = 10 + 10 * Math.random();
@@ -102,21 +122,16 @@ function setTimeoutClocure()
         point.onEnterFrame();
     }
 
-
-    /*
-    list = point.getPosition();
-    theta = Math.atan2(list[1],list[0]);
-    point.forceX = force * Math.cos(theta);
-    point.forceY = force * Math.sin(theta);
-     point.onEnterFrame();
-     */
-
-    setTimeout(setTimeoutClocure,3000);
+    time = 2000 + 3000 * Math.random();
+    id = setTimeout(setTimeoutClocure,time);
 }
 function tick()
 {
     onEnterFrame();
     draw();
+
+    clock.tick();
+
     stats.update();
     //
     stage.update();
@@ -190,7 +205,8 @@ function draw()
     //
     g = shape.graphics;
     g.clear();
-    g.beginStroke("#000000");
+    g.beginFill("#000000");
+    
     n = pointList.length;
     for(i=0;i<n;i++)
     {
@@ -209,6 +225,11 @@ function draw()
     list = point.getPosition();
     g.lineTo(list[0],list[1]);
     g.endStroke();
+}
+function clickHandler(event)
+{
+    clearTimeout(id);
+    addWave();
 }
 </script>
 </head>

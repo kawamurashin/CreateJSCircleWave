@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="614e88ee-260e-4852-9694-ce68b04726b6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Clock.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CirclePoint.js" afterPath="$PROJECT_DIR$/CirclePoint.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/createjs.js" afterPath="$PROJECT_DIR$/createjs.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CreateJSCircleWave.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="614e88ee-260e-4852-9694-ce68b04726b6" time="1399533744842" ignored="false" />
-    <file path="/index.html" changelist="614e88ee-260e-4852-9694-ce68b04726b6" time="1399534795977" ignored="false" />
+    <file path="/Dummy.txt" changelist="614e88ee-260e-4852-9694-ce68b04726b6" time="1400047905795" ignored="false" />
+    <file path="/index.html" changelist="614e88ee-260e-4852-9694-ce68b04726b6" time="1400056260443" ignored="false" />
     <file path="/CirclePoint.js" changelist="614e88ee-260e-4852-9694-ce68b04726b6" time="1399533918719" ignored="false" />
+    <file path="/clock.js" changelist="614e88ee-260e-4852-9694-ce68b04726b6" time="1400039693927" ignored="false" />
+    <file path="/Clock.js" changelist="614e88ee-260e-4852-9694-ce68b04726b6" time="1400057991869" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +29,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -61,6 +65,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -70,21 +75,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="14" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.5465313">
-              <folding>
-                <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="132" column="17" selection-start="2870" selection-end="2870" vertical-scroll-proportion="-18.75">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CirclePoint.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CirclePoint.js">
+      <file leaf-file-name="Clock.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Clock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="25" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.0">
+            <state line="53" column="10" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.7926102">
               <folding />
             </state>
           </provider>
@@ -108,16 +111,19 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/createjs.js" />
         <option value="$PROJECT_DIR$/CirclePoint.js" />
+        <option value="$PROJECT_DIR$/clock.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/Clock.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="538" />
-    <option name="y" value="16" />
-    <option name="width" value="1271" />
-    <option name="height" value="800" />
+    <option name="x" value="1755" />
+    <option name="y" value="83" />
+    <option name="width" value="1173" />
+    <option name="height" value="1070" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -147,7 +153,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -169,6 +174,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -176,6 +182,8 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../svn/kawamura/study/createjs metric clock/index.html" />
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -296,7 +304,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="538" y="16" width="1271" height="800" extended-state="0" />
+    <frame x="1755" y="83" width="1173" height="1070" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -316,11 +324,12 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18527709" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20162016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -385,13 +394,29 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Stats.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="33" selection-start="31" selection-end="37" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CirclePoint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="6" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -412,9 +437,7 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="41" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -435,9 +458,7 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="41" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -448,26 +469,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../svn/kawamura/study/createjs metric clock/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.53413653" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/createjs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="1" vertical-scroll-proportion="0.0">
+        <state line="16" column="52" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CirclePoint.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="25" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.0">
+        <state line="55" column="7" selection-start="169" selection-end="1361" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stats.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="76" selection-start="125" selection-end="125" vertical-scroll-proportion="0.1273743">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="14" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.5465313">
-          <folding>
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="132" column="17" selection-start="2870" selection-end="2870" vertical-scroll-proportion="-18.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Clock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="10" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.7926102">
+          <folding />
         </state>
       </provider>
     </entry>

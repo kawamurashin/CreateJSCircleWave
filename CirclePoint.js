@@ -27,32 +27,30 @@ CirclePoint = (function()
         this.vy += (this.forceY / this.M) - this.U * this.vy;
         this._x += this.vx;
         this._y += this.vy;
-    }
+    };
     CirclePoint.prototype.hoge = function()
     {
         console.log("hoge");
-    }
+    };
     CirclePoint.prototype.setPosition  = function(x , y)
     {
         this.defaultX = x ;
         this._x = this.defaultX;
         this.defaultY = y;
         this._y = this.defaultY;
-    }
+    };
     CirclePoint.prototype.getPosition  = function()
     {
         return [this._x,this._y];
-    }
+    };
     CirclePoint.prototype.getDefault  = function()
     {
         return [this.defaultX, this.defaultY];
-    }
+    };
     CirclePoint.prototype.setForce  = function(forceX ,forceY )
     {
         this.forceX = forceX;
         this.forceY = forceY;
-    }
-
-
+    };
     return CirclePoint;
 })();
